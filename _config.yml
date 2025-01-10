@@ -1,10 +1,9 @@
 # Configurations
-title: Jekyll Gitbook
-longtitle: Jekyll Gitbook
-author: HE Tao
-email: sighingnow@gmail.com
-description: >
-  Build Jekyll site with the GitBook style.
+title: changbill's homepage
+longtitle: changbill's homepage
+author: Changheon Lee
+email: chang2739@gmail.com
+description: 안녕하세요! 한 줄의 코드가 세상을 바꾼다고 생각하는 개발자 이창헌입니다
 
 version: 1.0
 gitbook_version: 3.2.3
