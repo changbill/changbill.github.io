@@ -4,7 +4,7 @@ author: Changheon Lee
 date: 2025-01-10
 category: github
 layout: post
-cover: https://changbill.github.io/jekyll-gitbook/assets/dinosaur.gif
+cover: https://changbill.github.io/assets/dinosaur.gif
 ---
 
 신년 들어서 마음가짐도 새롭게 할 겸 미뤄뒀던 블로그 옮기기를 하고자 했다.
@@ -52,12 +52,12 @@ Github Page 를 만드려면 Repository를 생성해야 한다.
 
 Repository 이름을 [사용자 github 이름].github.io 로 생성한다.
 
-![Github Pages 1](image.png)
+![Github Pages 1](../assets/github/github_page1.png)
 사진에는 이미 있다고 뜨지만 처음 만든다면 초록색으로 뜰 것이다.
 
 그 다음 Repository의 Settings -> Pages -> Build and deployment에서 Github Actions 를 선택해준다.
 
-![Github Pages 2](image-1.png)
+![Github Pages 2](../assets/github/github_page2.png)
 
 ### 3. 프로젝트 구성
 
@@ -71,7 +71,7 @@ Repository 이름을 [사용자 github 이름].github.io 로 생성한다.
 
 이 블로그의 경우 gitbook 테마를 사용했는데 Jekyll with Github Pages workflow를 그대로 설정값으로 사용했다.
 
-![Jekyll workflow](image-2.png)
+![Jekyll workflow](../assets/github/jekyll_workflow.png)
 
 여기서 각자 원하는 기능이 있다면 추가적으로 custom 하면 될 듯하다.
 
@@ -87,7 +87,7 @@ bundle exec jekyll serve
 
 이제 커밋 푸시하여 페이지가 배포되는지 확인해보자.
 
-![Build & deployment result](image-3.png)
+![Build & deployment result](../assets/github/build_and_deployment.png)
 정상적으로 Build & deployment 가 이루어졌다면 이렇게 떠야한다.
 
 ### 로컬에서는 문제없는데 배포하면 CSS가 적용 안되는 오류 발생
@@ -105,7 +105,7 @@ baseurl: ""
 
 이후 페이지에 접속해보면 정상적으로 배포된 것을 확인할 수 있다.
 
-![메인 페이지](image-4.png)
+![메인 페이지](../assets/github/main_page.png)
 
 [1]: http://jekyllthemes.org/
 
