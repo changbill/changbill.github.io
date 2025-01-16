@@ -4,7 +4,6 @@ author: Changheon Lee
 date: 2025-01-10
 category: github
 layout: post
-cover: https://changbill.github.io/assets/cover/github_page.jpg
 ---
 
 신년 들어서 마음가짐도 새롭게 할 겸 미뤄뒀던 블로그 옮기기를 하고자 했다.
