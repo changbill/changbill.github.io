@@ -4,7 +4,7 @@ author: Changheon Lee
 date: 2025-01-10
 category: github
 layout: post
-cover: https://changbill.github.io/assets/dinosaur.gif
+cover: https://changbill.github.io/assets/cover/github_page.jpg
 ---
 
 신년 들어서 마음가짐도 새롭게 할 겸 미뤄뒀던 블로그 옮기기를 하고자 했다.
@@ -20,6 +20,7 @@ cover: https://changbill.github.io/assets/dinosaur.gif
 그래서 이번 블로그에서는 다른 블로그에서도 볼 수 있는 단순 이론 정리가 아닌 문제 해결 과정이나 고민한 흔적, 프로젝트 설명, 경험 정리 등으로 채워나가보려 한다.
 
 ## 블로그 선택
+
 다음 블로그 후보로는 velog, 노션, github blog 등이 있었다.
 
 각각의 장점이 있었지만 CI/CD 파이프라인 학습과 블로그를 작성해도 잔디를 채울 수 있다는 장점으로 github blog를 선택했다.
@@ -92,9 +93,9 @@ bundle exec jekyll serve
 
 ### 로컬에서는 문제없는데 배포하면 CSS가 적용 안되는 오류 발생
 
-_config.yml 에서 base-url을 잘못 설정해서 그랬다.
+\_config.yml 에서 base-url을 잘못 설정해서 그랬다.
 
-보통 테마에서 파일을 긁어 왔다면 _config.yml에 기본 사용자 github.io 주소가 작성되어 있을 것이다.
+보통 테마에서 파일을 긁어 왔다면 \_config.yml에 기본 사용자 github.io 주소가 작성되어 있을 것이다.
 
 이를 내 github.io 주소로 변경해줘야 한다.
 
@@ -108,4 +109,3 @@ baseurl: ""
 ![메인 페이지](../assets/github/main_page.png)
 
 [1]: http://jekyllthemes.org/
-
