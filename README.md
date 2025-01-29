@@ -60,7 +60,7 @@ permalink: /
 ## License and Certificate
 - 2024.12 | 정보처리기사 취득 <br>
 - 2023.10 | SQLD 자격증 취득 <br>
-- 2024.01 | TOEIC Speaking IM1 취득 <br>
+- 2024.1 | TOEIC Speaking IM1 취득 <br>
 <br>
 
 ## Site
