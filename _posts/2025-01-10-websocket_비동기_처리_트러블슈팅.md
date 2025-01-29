@@ -71,7 +71,7 @@ private void initializeWebSocket() {
 
 ### 비동기 작업 시작
 
-1. supplyAsync()
+#### 1. supplyAsync()
    supplyAsync() 메서드는 Supplier 함수형 인터페이스를 인자로 받아, 해당 함수형 인터페이스의 get() 메서드가 실행하는 작업을 비동기적으로 수행한다. 이 메서드는 작업의 결과를 CompletableFuture 객체로 감싸서 반환하는데, 이 CompletableFuture 객체는 비동기 작업의 결과를 나타내며 작업의 상태 정보를 담고 있다.
 
 아래 코드는 supplyAsync()를 사용한 예
@@ -84,7 +84,7 @@ CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
 });
 ```
 
-2. runAsync()
+#### 2. runAsync() <br>
    runAsync() 메서드는 Runnable 인터페이스를 인자로 받아, 해당 인터페이스의 run() 메서드가 실행하는 작업을 비동기적으로 수행한다. 이 메서드는 작업의 결과를 반환하지 않으므로, 반환 타입은 CompletableFuture<Void>가 된다.
 
 아래 코드는 runAsync()를 사용한 예
@@ -101,7 +101,7 @@ System.out.println("Hello, World!");
 
 
 ### 비동기 결과 조작
-1. thenApply / thenApplyAsync
+#### 1. thenApply / thenApplyAsync <br>
    thenApply[Async] 메서드는 모두 이전 작업의 결과를 받아 새로운 연산을 수행하고 그 결과를 CompletableFuture로 반환하는 기능을 제공한다.(메서드 체이닝)
 
 ```
@@ -138,7 +138,7 @@ thenApplyAsync를 사용하면, 비동기 작업의 결과를 기반으로 새�
 
 결론적으로, thenApply와 thenApplyAsync는 모두 이전 작업의 결과를 기반으로 새로운 작업을 수행하지만, 동작 방식에 차이가 있다. **thenApply**는 `동기적으로 같은 스레드`에서 작업이 이루어지는 반면, **thenApplyAsync**는 `비동기적으로 별도의 스레드`에서 작업이 수행된다.
 
-2. thenAccept / thenAcceptAsync
+#### 2. thenAccept / thenAcceptAsync
    이전 단계의 결과를 받아 해당 결과를 소비하는 작업을 수행하고, 반환값이 없다.
 ```
 CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> {
@@ -152,7 +152,7 @@ CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> {
 
 실행하면 "Hello World!"라는 결과를 출력하며, 반환값이 없으므로 CompletableFuture<Void>가 생성된다. thenAcceptAsync 메서드는 마찬가지로 thenAccept와 동일한 작업을 수행하지만, 별도의 스레드에서 비동기적으로 연산을 수행한다.
 
-3. thenRun / thenRunAsync
+#### 3. thenRun / thenRunAsync
    이전 단계의 결과와 상관없이 특정 작업을 실행한다.
 
 ```
@@ -169,7 +169,7 @@ CompletableFuture<Void> future = CompletableFuture.supplyAsync(() -> {
 
 
 ### 비동기 작업 조합
-1. thenCompose / thenComposeAsync
+#### 1. thenCompose / thenComposeAsync
    thenCompose()와 thenComposeAsync() 메서드는 이전 작업의 결과를 이용하여 새로운 CompletableFuture를 생성하고 실행하는 데 사용된다. 이 메서드들은 이전 작업의 결과를 Function의 인자로 받아, 새로운 CompletableFuture를 반환하는 함수를 실행한다.
 
 ```
@@ -194,7 +194,7 @@ thenCompose[Async] vs thenApply[Async]
 thenApply()는 이전 작업의 결과를 받아 특정 연산을 수행하고 그 결과를 반환하는 반면, thenCompose[Async]는 이전 작업의 결과를 활용하여 새로운 비동기 작업을 생성하고 그 결과를 반환한다.
 즉, thenApply()는 주로 이전 작업의 결과를 변환하는 데 사용되며, thenCompose[Async]는 이전 작업의 결과를 바탕으로 새로운 비동기 작업을 시작하는 데 사용된다.
 
-2. thenCombine / thenCombineAsync
+#### 2. thenCombine / thenCombineAsync
    thenCombine[Async] 메서드는 두 개의 CompletableFuture가 모두 완료될 때까지 기다린 후, 두 작업의 결과를 이용하여 새로운 값을 계산한다. thenCombine[Async]는 두 작업의 결과를 BiFunction의 인자로 받아, 새로운 값을 계산하는 함수를 실행한다.
 
 ```
@@ -221,7 +221,7 @@ thenCompose[Async] vs thenCombine[Async]
 thenCompose[Async]는 하나의 CompletableFuture의 결과를 이용하여 새로운 CompletableFuture를 생성하고 실행한다.
 즉, thenCompose[Async]는 체인 형태의 비동기 작업을 처리하는 데 사용되며, thenCombine[Async]는 두 개의 독립적인 비동기 작업을 병렬로 처리하고 그 결과를 합치는 데 사용된다.
 
-3. allOf()
+#### 3. allOf()
    allOf()메서드는 여러 개의 CompletableFuture를 배열로 받아, 모든 비동기 작업이 동시에 실행되도록 한다. 또한 모든 작업이 완료될 때까지 기다렸다가, 모든 작업이 완료되면 CompletableFuture<Void>를 반환한다. 이를 통해 모든 비동기 작업의 완료를 알릴 수 있다.
 
 ```
@@ -240,7 +240,7 @@ CompletableFuture<Void> future = CompletableFuture.allOf(hello, world);
 
 allOf() 메소드는 여러 비동기 작업이 동시에 수행되어야 하고, 모든 작업이 완료될 때까지 기다려야 하는 상황에서 유용하게 사용될 수 있다. 이런 특성 덕분에 allOf() 메소드는 주로 병렬 처리 작업에 사용되는데, 여러 비동기 작업을 동시에 수행하고 모든 작업이 완료되는 시점을 알아야 할 때 allOf() 메서드를 활용하면 효율적인 비동기 프로그래밍이 가능한다.
 
-4. anyOf()
+#### 4. anyOf()
 
 anyOf() 메서드는 여러 개의 CompletableFuture 중에서 가장 먼저 완료되는 작업의 결과를 반환한다. 또한 CompletableFuture<Object>를 반환하며, 가장 먼저 완료되는 작업의 결과를 알리는 데 사용된다.
 
@@ -263,7 +263,7 @@ anyOf() 메서드는 여러 비동기 작업 중에서 가장 빠르게 완료�
 
 ### 비동기 예외처리
 
-1. handle[Async]
+#### 1. handle[Async]
    handle[Async] 메서드는 비동기 작업의 결과를 처리하거나, 작업 중 발생한 예외를 처리하는 역할을 한다. 작업이 정상적으로 완료되면 결괏값을 반환하고, 예외가 발생하면 예외를 처리한다. handle[Async]은 결과값 또는 예외를 인자로 받아 처리한 후, 새로운 값을 반환한다.
 
 ```
@@ -283,7 +283,7 @@ CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
 
 이 코드에서 CompletableFuture.supplyAsync() 메서드를 통해 비동기 작업을 시작한다. 이 작업은 예외를 발생시키므로 handle 메서드에는 예외 객체가 전달된다. handle 메서드는 예외를 처리하고, 예외가 발생했으므로 -1을 반환한다.
 
-2. whenComlete[Async]
+#### 2. whenComlete[Async]
    whenComplete[Async] 메서드는 비동기 작업의 결과나 예외를 받아 처리하되, 새로운 값을 반환하지 않다. 원래의 CompletableFuture에 영향을 미치지 않고 예외를 처리하는 역할만 한다.
 
 ```
@@ -303,7 +303,7 @@ CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
 
 따라서 whenComplete[Async] 메서드를 사용하면 비동기 작업의 결과를 처리하거나, 작업 중 발생한 예외를 적절히 처리할 수 있으며, 이때 원래의 CompletableFuture에는 영향을 미치지 않다.
 
-3. exceptionally[Async]
+#### 3. exceptionally[Async]
    exceptionally[Async] 메서드는 비동기 작업 중 예외가 발생했을 때 대체 값을 반환하는 역할을 한다. 예외를 인자로 받아 처리하며, 예외가 발생했을 때 반환할 대체 값을 지정한다.
 
 ```
@@ -325,7 +325,7 @@ CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
 
 ### 비동기 대기 / 취소 처리
 
-1. get()
+#### 1. get()
    get() 메서드는 비동기 작업의 결과를 반환하며, 작업이 완료될 때까지 호출한 스레드를 대기 상태로 만듭니다. 블로킹 방식으로 동작하므로 get() 메서드를 호출한 스레드는 작업의 완료를 기다리는 동안 다른 작업을 진행하지 않다.
 
 또한, get() 메서드는 InterruptedException과 ExecutionException 등의 체크된 예외(Checked Exception)를 던집니다. 따라서 get() 메서드를 사용할 때는 try-catch 블록을 통해 이러한 예외를 적절히 처리해야 한다.
@@ -340,7 +340,7 @@ try {
 }
 ```
 
-2. get(timeout, unit)
+#### 2. get(timeout, unit)
    get(timeout, unit) 메서드는 비동기 작업의 결과를 반환하며, 작업의 완료를 기다리는 시간을 제한할 수 있다. get() 메서드와 유사하지만, 작업 완료를 기다리는 시간을 제한하는 점이 다릅니다.
 
 만약 지정된 시간 동안 작업이 완료되지 않으면 TimeoutException이 발생한다. 여기서 시간 단위는 TimeUnit 열거형을 사용하여 지정한다. 또한 get(timeout, unit)은 작업 중 예외가 발생하면 ExecutionException을 던지므로, 이를 처리하기 위해 try-catch 블록을 사용해야 한다.
@@ -362,7 +362,7 @@ try {
 }
 ```
 
-3. join()
+#### 3. join()
    join() 메서드는 비동기 작업의 결과를 반환하며, 작업이 완료될 때까지 현재 스레드를 대기 상태로 만듭니다. get() 메서드와 유사한 역할을 하지만 join() 메서드는 체크된 예외가 아닌 CompletionException이라는 언체크 된 예외를 발생시킨다.
 
 또한, join() 메서드는 블로킹 메서드로 작용하여, 해당 메서드가 호출된 스레드는 비동기 작업이 완료될 때까지 다른 작업을 수행하지 않고 대기한다.
@@ -381,7 +381,7 @@ System.out.println(result);
 
 이 코드에서 join() 메서드를 통해 비동기 작업의 결과를 얻을 수 있다. 또한 작업이 완료될 때까지 스레드를 블로킹하기 때문에, 작업이 완료되면 그 결과를 반환하고, 그렇지 않으면 스레드를 계속 대기 상태로 유지한다.
 
-4. cancel(boolean mayInterruptIfrunning)
+#### 4. cancel(boolean mayInterruptIfrunning)
    cancel(boolean mayInterruptIfRunning) 메서드는 비동기 작업을 취소하는 데 사용되며, 매개변수 mayInterruptIfRunning은 작업이 실행 중일 때 그 작업을 중단시킬지 여부를 결정한다. 만약 이 매개변수가 true로 설정되면, 실행 중인 작업이 있다면 그 작업을 중단시킨다.
 
 작업이 성공적으로 취소되면 true를 반환하며 작업이 이미 완료되었거나 이미 취소되었거나, 취소할 수 없는 경우에는 false를 반환한다.
