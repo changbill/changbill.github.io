@@ -54,7 +54,9 @@ permalink: /
 <br>
 
 ## Development Experience
-- 2023.07 ~ 2024.06 | SSAFY 10기 교육 수료(프로젝트 우수상 2회 수상) <br>
+| 기간 | 내용|
+|------|--------|
+| 2023.07 ~ 2024.06 | SSAFY 10기 교육 수료(프로젝트 우수상 2회 수상) |
 <br>
 
 ## License and Certificate
